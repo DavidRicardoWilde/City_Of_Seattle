@@ -9,35 +9,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>Seattle</title>
+    <title>My JSP 'html_head.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-
-	<!-- fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="public/css/seattlehome.css">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
 
   </head>
   
   <body>
-		<div class="content">
-      <div class="title m-b-md">
-				welcome to Seattle
-      </div>
-
-      <div class="links">
-        <a href="">Documentation</a>
-        <a href="">Laracasts</a>
-        <a href="">News</a>
-        <a href="">Forge</a>
-        <a href="">GitHub</a>
-        </div>
-      </div>
+    This is my JSP page. <br>
   </body>
 </html>
