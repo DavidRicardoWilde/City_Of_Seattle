@@ -12,9 +12,13 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" 
 >
+	<!-- Service -->
 
+	<!-- Bean -->
 
-
+	<!-- DAO -->
+	
+	<!-- databases -->
 	<aop:config>
 		<aop:pointcut id="dbOperateMethods" expression="execution(* model.*DAO.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="dbOperateMethods" />
