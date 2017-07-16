@@ -18,25 +18,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 
 	<!-- fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
 	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="public/css/seattlehome.css">
+    <!-- CSS External File (including CDN) -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<!-- css for main_head.jsp -->
+  <link rel="stylesheet" type="text/css" href="public/css/main_head.css" />
+  	<!-- myself css -->
+   <link rel="stylesheet" type="text/css" href="public/css/seattlehome.css" />
+  
+  <!-- js -->
+    <!-- js External File (including CDN) -->
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </head>
   
   <body>
-		<div class="content">
+  	<jsp:include page="../public/insertHTML/main_head.jsp"></jsp:include>
+  	 <div class="content">
       <div class="title m-b-md">
-				welcome to Seattle
+				Welcome to Seattle!
       </div>
 
       <div class="links">
-        <a href="">Documentation</a>
-        <a href="">Laracasts</a>
-        <a href="">News</a>
-        <a href="">Forge</a>
-        <a href="">GitHub</a>
+      	<a href="">Travel & Viewpoints</a>
+      	<a href="">Foods & Restaurant</a>
+        <a href="">News & Recommend</a>
+        <a href="">Hotel & Stay</a>
+        <a href="">Map & traffic</a>
+        <a href="">Help & Feedback</a>
         </div>
       </div>
   </body>

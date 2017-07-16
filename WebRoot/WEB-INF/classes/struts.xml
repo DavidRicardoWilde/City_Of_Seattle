@@ -4,7 +4,7 @@
 <struts>
 	<package name="controller" extends="struts-default">
 		<!-- show page struts -->
-		
+		<action name=""></action>
 		<!-- controller -->
 		
 		<!-- data and databases -->
