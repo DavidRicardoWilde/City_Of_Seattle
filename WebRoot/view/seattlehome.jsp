@@ -42,12 +42,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
 
       <div class="links">
-      	<a href="">Travel & Viewpoints</a>
-      	<a href="">Foods & Restaurant</a>
-        <a href="">News & Recommend</a>
-        <a href="">Hotel & Stay</a>
-        <a href="">Map & traffic</a>
-        <a href="">Help & Feedback</a>
+      	<a href="showpage.action?pagename=travel">Travel & Viewpoints</a>
+      	<a href="showpage.action?pagename=foods">Foods & Restaurant</a>
+        <a href="showpage.action?pagename=news">News & Recommend</a>
+        <a href="showpage.action?pagename=hotels">Hotel & Stay</a>
+        <a href="showpage.action?pagename=map">Map & traffic</a>
+        <a href="showpage.action?pagename=feedback">Help & Feedback</a>
         </div>
       </div>
   </body>
