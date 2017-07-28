@@ -3,12 +3,19 @@
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="controller" extends="struts-default">
-		<!-- show page action -->
-		<action name="logout" class="logoutAction" method="logout">
+		<!-- login action -->
+		<action name="adminLogin" class="adminService" method="adminlogin">
+			</action>
+			
+		<action name="adminLoginAction" class="adminService">
+			</action>
+		
+		<!-- show w action -->
+		<action name="logout" class="logoutService" method="logout">
 			<result name="logout">view/seattlehome.jsp</result>
 		</action>
 		
-		<action name="showpage" class="showPageAction" method="showpage">
+		<action name="showpage" class="showPageService" method="showpage">
 			<result name="travel">/view/mainpages/travel.jsp</result>
 			<result name="foods">/view/mainpages/foods.jsp</result>
 			<result name="news">/view/mainpages/news.jsp</result>
@@ -16,7 +23,7 @@
 			<result name="map">/view/mainpages/map.jsp</result>
 			<result name="feedback">/view/mainpages/feedback.jsp</result>
 		</action>
-		<!-- controller action -->
+		<!-- service action -->
 		
 		<!-- data and databases action -->
 	</package>

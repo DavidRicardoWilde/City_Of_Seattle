@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
+	<meta http-equiv="description" content="Code by Gn">
 
 	<!-- fonts-->
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -37,18 +37,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<jsp:include page="../public/insertHTML/main_head.jsp"></jsp:include>
   	 <div class="content">
-      <div class="title m-b-md">
-				Welcome to Seattle!
-      </div>
+      <div class="head-content">
+        <div class="title m-b-md">
+				  Welcome to Seattlew
+        </div>
 
-      <div class="links">
-      	<a href="showpage.action?pagename=travel">Travel & Viewpoints</a>
-      	<a href="showpage.action?pagename=foods">Foods & Restaurant</a>
-        <a href="showpage.action?pagename=news">News & Recommend</a>
-        <a href="showpage.action?pagename=hotels">Hotel & Stay</a>
-        <a href="showpage.action?pagename=map">Map & traffic</a>
-        <a href="showpage.action?pagename=feedback">Help & Feedback</a>
+        <div class="links">
+          <a href="showpage.action?pagename=travel">Travel & Viewpoints</a>
+          <a href="showpage.action?pagename=foods">Foods & Restaurant</a>
+          <a href="showpage.action?pagename=news">News & Recommend</a>
+          <a href="showpage.action?pagename=hotels">Hotel & Stay</a>
+          <a href="showpage.action?pagename=map">Map & traffic</a>
+          <a href="showpage.action?pagename=feedback">Help & Feedback</a>
         </div>
       </div>
+
+     <div class="body-content">
+        
+     </div>
+    </div>
   </body>
 </html>

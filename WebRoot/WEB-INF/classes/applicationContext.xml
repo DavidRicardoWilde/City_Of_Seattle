@@ -12,15 +12,15 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" 
 >
-	<!-- Action -->
-	<bean id="logoutAction" class="controller.LogoutService">
+	<!-- Services -->
+	<bean id="showPageService" class="controller.ShowPageService">
 		</bean>
-	
-	<bean id="showPageAction" class="controller.ShowPageService">
+			
+	<bean id="logoutService" class="controller.LogoutService">
 		</bean>
 		
-	<!-- Services -->
-
+	<bean id="adminService" class="controller.AdminService">
+		</bean>
 	<!-- Bean -->
 
 	<!-- DAO -->
@@ -49,6 +49,11 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
+		<property name="mappingResources">
+			<list>
+				<value>user.hbm.xml</value>
+			</list>
+		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">

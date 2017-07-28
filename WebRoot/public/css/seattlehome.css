@@ -48,3 +48,13 @@ html, body {
 .m-b-md {
     margin-bottom: 30px;
 }
+
+.head-content{
+    margin: auto;
+    height: 1013px; /*é«˜åº¦éœ€è¦�è°ƒæ•´*/
+    width: 1728px;
+    background-image: url(../image/photo/homepage-head4096.jpg);
+    background-position: top center;
+    background-size: 1728px 90%;
+    background-repeat: no-repeat;
+}
