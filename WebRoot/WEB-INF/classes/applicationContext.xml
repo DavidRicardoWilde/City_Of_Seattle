@@ -20,10 +20,16 @@
 		</bean>
 		
 	<bean id="adminService" class="controller.AdminService">
-		</bean>
+		<property name="adminDAOInf" ref="adminDAO"></property>
+	</bean>
 	<!-- Bean -->
-
+	<bean id="adminBean" class="model.AdminBean">
+		</bean>
+	
 	<!-- DAO -->
+	<bean id="adminDAO" class="model.AdminDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!-- databases -->
 	<aop:config>
@@ -31,14 +37,9 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="dbOperateMethods" />
 	</aop:config>
 	
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
-		<tx:attributes>
-			<tx:method name="" propagation="REQUIRED" rollback-for="Exception"/>
-		</tx:attributes>
-	</tx:advice>
-	
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"
 			value="jdbc:mysql://127.0.0.1:33067/city_of_seattle?useSSL=false">
 		</property>
@@ -65,9 +66,17 @@
 		</property>
 	</bean>
 	
-	<bean id="transactionManager"
+	<bean id="transactionManager" 
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- <tx:method name="" propagation="REQUIRED" rollback-for="Exception"/> -->  <!-- my standard format  -->
+			<tx:method name="queryByHql" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="testCode" propagation="REQUIRED" rollback-for="Exception"/>
+		</tx:attributes>
+	</tx:advice>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" /></beans>

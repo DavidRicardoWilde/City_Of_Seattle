@@ -26,11 +26,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<!-- css for main_head.jsp -->
   <link rel="stylesheet" type="text/css" href="public/css/main_head.css" />
   	<!-- myself css -->
-   <link rel="stylesheet" type="text/css" href="public/css/seattlehome.css" />
+  <link rel="stylesheet" type="text/css" href="public/css/seattlehome.css" />
   
   <!-- js -->
     <!-- js External File (including CDN) -->
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- jquery -->
+	<script type="text/javascript" src="public/js/jquery/jquery-3.2.1.min.js"></script>
 
   </head>
   
@@ -39,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	 <div class="content">
       <div class="head-content">
         <div class="title m-b-md">
-				  Welcome to Seattlew
+				  Welcome to Seattle!
         </div>
 
         <div class="links">

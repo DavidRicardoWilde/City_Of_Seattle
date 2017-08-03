@@ -4,11 +4,12 @@
 <struts>
 	<package name="controller" extends="struts-default">
 		<!-- login action -->
-		<action name="adminLogin" class="adminService" method="adminlogin">
-			</action>
-			
-		<action name="adminLoginAction" class="adminService">
-			</action>
+		<action name="adminLoginAction" class="adminService" method="adminlogin">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 		
 		<!-- show w action -->
 		<action name="logout" class="logoutService" method="logout">
@@ -16,14 +17,17 @@
 		</action>
 		
 		<action name="showpage" class="showPageService" method="showpage">
+			<!-- main page -->
 			<result name="travel">/view/mainpages/travel.jsp</result>
 			<result name="foods">/view/mainpages/foods.jsp</result>
 			<result name="news">/view/mainpages/news.jsp</result>
 			<result name="hotels">/view/mainpages/hotels.jsp</result>
 			<result name="map">/view/mainpages/map.jsp</result>
 			<result name="feedback">/view/mainpages/feedback.jsp</result>
+			<!-- pages to witch admins belongs -->
+			<result name="adminPostPage">/view/adminpages/postpage.jsp</result>
 		</action>
-		<!-- service action -->
+		<!-- service action --> 
 		
 		<!-- data and databases action -->
 	</package>
