@@ -9,9 +9,10 @@
 				<param name="contentType">text/html</param>
 				<param name="inputName">inputStream</param>
 			</result>
+			<result name="SYSTEM ERROR" type="stream"></result>
 		</action>
 		
-		<!-- show w action -->
+		<!-- show page action -->
 		<action name="logout" class="logoutService" method="logout">
 			<result name="logout">view/seattlehome.jsp</result>
 		</action>
@@ -29,6 +30,8 @@
 		</action>
 		<!-- service action --> 
 		
-		<!-- data and databases action -->
+		<!-- Post data into databases action -->
+		<action name="adminPost" class="adminService" method="sumbitArticle">
+			</action>
 	</package>
 </struts>    
