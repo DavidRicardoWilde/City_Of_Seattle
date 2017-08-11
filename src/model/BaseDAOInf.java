@@ -7,8 +7,6 @@ public interface BaseDAOInf<T> {
 	
 //	public List queryList();
 	
-	public void addObjt(T tObjt);
-	
 	public List queryByHql(String hqlQuery);
 	
 	public void testCode();

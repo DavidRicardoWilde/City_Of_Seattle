@@ -14,16 +14,6 @@ public abstract class BaseDAO<T> implements BaseDAOInf<T> {
 	protected SessionFactory sessionFactory;
 	
 	//function
-	public void addObjt(T tObjt){
-		try{
-			System.out.println("this is add function in BaseDAO");
-			Session session = sessionFactory.getCurrentSession();
-			session.save(tObjt);
-		}catch(Exception e){
-			System.out.println(e);
-		}
-	}
-	
 	public <T> List queryBySQL(String sql, T... tObj){
 		List list = null;
 		return list;
