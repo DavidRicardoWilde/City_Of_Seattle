@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
 	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+	
 <struts>
+
 	<package name="controller" extends="struts-default">
 		<!-- login action -->
 		<action name="adminLoginAction" class="adminService" method="adminlogin">
@@ -32,6 +35,10 @@
 		
 		<!-- Post data into databases action -->
 		<action name="adminPost" class="adminService" method="sumbitArticle">
-			</action>
+		</action>
+		<!-- test action -->
+		<action name="testAction" class="testService" method="testPostImage">
+			<interceptor-ref name="defaultStack"></interceptor-ref>  
+		</action>
 	</package>
 </struts>    

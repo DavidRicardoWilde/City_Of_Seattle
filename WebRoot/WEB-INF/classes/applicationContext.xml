@@ -23,7 +23,18 @@
 		<property name="adminDAOInf" ref="adminDAO"></property>
 		<property name="adminOptDAOInf" ref="adminOptDAO"></property>
 	</bean>
+	
+	<!-- test service -->
+	<bean id="testService" class="controller.TestService">
+		</bean>
+		
 	<!-- Bean -->
+	<bean id="officalPhotoPathBean" class="model.OfficalPostImageBean">
+		</bean>
+	
+	<bean id="officalPostImageBean" class="model.OfficalPostImageBean">
+		</bean>
+	
 	<bean id="adminBean" class="model.AdminBean">
 		</bean>
 	
@@ -60,6 +71,7 @@
 			<list>
 				<value>user.hbm.xml</value>
 				<value>post.hbm.xml</value>
+				<value>images.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

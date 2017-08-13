@@ -29,7 +29,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="content">
 		<div class="post">
 			admin id is <%= (Integer)request.getSession().getAttribute("adminId") %>
-			<form action="adminPost" class="postform">
+			<form action="adminPost" class="postform" method="post" enctype="multipart/form-data">
+			<!-- <form action="adminPost" class="postform" method="post"> -->
 				<div class="title">
 					title:
 					<input id="title" name="title" type="text" placeholder="content">
@@ -39,7 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<textarea id="content" name="content" placeholder="content"></textarea>
 				</div>
 				<div class="image">
-					<input type="file" name="imageSubmit" id="iamgeSubmit" hidden="true" />
+					<input type="file" id="image" name="image"/>
+					<!-- <input type="file" id="image" name="image" hidden="true" /> -->
 				</div>
 				<div>
 					<select id="unitname" name="unitname">

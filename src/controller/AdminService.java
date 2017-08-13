@@ -1,6 +1,10 @@
 package controller;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 //import java.sql.Date;
 import java.util.Date;
@@ -9,6 +13,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionContext;
 
 import model.AdminBean;
@@ -16,6 +23,8 @@ import model.AdminDAO;
 import model.AdminDAOInf;
 import model.AdminOptDAOInf;
 import model.OfficialPostBean;
+import model.OfficalPhotoPathBean;
+import model.OfficalPostImageBean;
 
 public class AdminService {
 	//property
@@ -30,6 +39,12 @@ public class AdminService {
 	private String content;
 	private int poster;
 	private String title;
+		//image file submit  ---- http://www.xuebuyuan.com/2097850.html
+	private File image;
+    private String imageFileName;
+    private String imageContentType;
+		
+	//imagefiles to save images
 		//---basic property----
 	private InputStream inputStream;
 	private AdminDAOInf adminDAOInf;
@@ -38,6 +53,28 @@ public class AdminService {
 	//private AdminBean adminBean;
 	
 	//get-set function
+	public void setImage(File image){
+		System.out.println("---------------- this is image set function");
+		this.image=image;
+	}
+	public File getImage(){
+		return image;
+	}
+	
+	public void setImageFileName(String imageFileName){
+		this.imageFileName=imageFileName;
+	}
+	public String getImageFileName(){
+		return imageFileName;
+	}
+	
+	public void setImageContentType(String imageContentType){
+		this.imageContentType=imageContentType;
+	}
+	public String getImageContentType(){
+		return imageContentType;
+	}
+	 
 	public void setAdminOptDAOInf(AdminOptDAOInf adminOptDAOInf){
 		this.adminOptDAOInf=adminOptDAOInf;
 	}
@@ -52,6 +89,7 @@ public class AdminService {
 //	}
 	
 	public void setTitle(String title){
+		System.out.println("set function title = "+title);
 		this.title=title;
 	}
 	public String getTitle(){
@@ -66,6 +104,7 @@ public class AdminService {
 	}
 	
 	public void setContent(String content){
+		System.out.println("this is a test. Content is: "+content);
 		this.content=content;
 	}
 	public String getContent(){
@@ -141,8 +180,8 @@ public class AdminService {
 		System.out.println("this is submitArticle function");
 			//set the datetime
 		Date datetime = new Date();
-		System.out.println("something wrong");
-			//test code: hibernate can set the date by auto
+		//System.out.println("something wrong"); test code
+			//test code: hibernate can set the date by auto //test end
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String datetimeTest = sdf.format(datetime);
 		
@@ -155,16 +194,43 @@ public class AdminService {
 		officialPostBean.setPosttime(datetimeTest);
 		officialPostBean.setPoster(poster);
 		
+		//image file
+		String savepath = ServletActionContext.getServletContext().getRealPath("/public/officalimage");
+		System.out.println("savepath = "+savepath);
+			//test code
+		System.out.println("image is = "+image);
+		System.out.println("imagename is = "+imageFileName);
+		
+		if(image != null){
+			System.out.println("imagefile is exists");
+			File savefile = new File(new File(savepath), imageFileName);
+			System.out.println(savefile.getParentFile());
+			if(savefile.getParentFile().exists()){
+				try {  
+                   savefile.getParentFile().mkdirs();  
+                   FileUtils.copyFile(image, savefile);  
+                } catch (IOException e) {  
+                    e.printStackTrace();  
+                } 
+				System.out.println("save successful");
+			}
+		}else{
+			System.out.println("imagefile is not exist");
+		}
+		
+		
 			//testcode
 //		System.out.println("title = "+officialPostBean.getTitle());
 //		System.out.println("content = "+officialPostBean.getContent());
 //		System.out.println("unitname = "+officialPostBean.getUnitname());
 //		System.out.println("poster = "+officialPostBean.getPoster());
 //		System.out.println("datetime = "+officialPostBean.getPosttime());
-		System.out.println("poster = "+officialPostBean.getPoster());
+//		System.out.println("poster = "+officialPostBean.getPoster());
+		
+		
 
-		inputStream=new ByteArrayInputStream("{\"success\":1}".getBytes("UTF-8"));
-		adminOptDAOInf.addObjt(officialPostBean);
+//		inputStream=new ByteArrayInputStream("{\"success\":1}".getBytes("UTF-8"));
+//		adminOptDAOInf.addObjt(officialPostBean);
 	}
 	
 		//set admin session

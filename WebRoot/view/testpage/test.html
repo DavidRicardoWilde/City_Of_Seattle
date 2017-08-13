@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>test post image</title>
+</head>
+<body>
+    <form action="adminPost" class="postform"method="post" enctype="multipart/form-data">
+			<!-- <form action="adminPost" class="postform" method="post"> -->
+				<div class="title">
+					title:
+					<input id="title" name="title" type="text" placeholder="content">
+				</div>
+				<div class="textcontent">
+					content:
+					<textarea id="content" name="content" placeholder="content"></textarea>
+				</div>
+				<div class="postimage">
+				 	choose a image: 
+				 	<input type="file" name="postimage" id="postimage" />
+					<!-- <input type="file" id="image" name="image" hidden="true" /> -->
+				</div>
+				<div>
+					<select id="unitname" name="unitname">
+						<option value="TV">travel&viewpoints</option>
+						<option value="FR">foods&restaurant</option>
+						<option value="NR">news&recommend</option>
+						<option value="hs">hotel&stay</option>
+					</select>
+				</div>
+				<div>
+				
+				<div>
+					<input type="submit" value="submit">	
+				</div>
+			</form>
+			<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script> 
+			<!-- <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>  -->
+</body>
+</html>
