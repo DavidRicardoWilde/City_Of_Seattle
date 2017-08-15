@@ -4,7 +4,7 @@ public class OfficalPostImageBean {
 	//property
 	private int id;
 	private String image_name;
-	private int postid;
+	private int postid; //
 	
 	//get-set function
 	public void setId(int id){

@@ -13,6 +13,9 @@
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" 
 >
 	<!-- Services -->
+	<bean id="travelService" class="controller.TravelService">
+		</bean>
+	
 	<bean id="showPageService" class="controller.ShowPageService">
 		</bean>
 			
@@ -22,6 +25,8 @@
 	<bean id="adminService" class="controller.AdminService">
 		<property name="adminDAOInf" ref="adminDAO"></property>
 		<property name="adminOptDAOInf" ref="adminOptDAO"></property>
+		<property name="officalPostImageDAOInf" ref="officalPostImageDAO"></property>
+		<property name="officalPhotoPathDAOInf" ref="officalPhotoPathDAO"></property>
 	</bean>
 	
 	<!-- test service -->
@@ -41,6 +46,14 @@
 	<bean id="officialPostBean" class="model.OfficialPostBean">
 		</bean>
 	<!-- DAO -->
+	<bean id="officalPhotoPathDAO" class="model.OfficalPhotoPathDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="officalPostImageDAO" class="model.OfficalPostImageDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<bean id="adminDAO" class="model.AdminDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>

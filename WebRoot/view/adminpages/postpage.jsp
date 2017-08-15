@@ -58,8 +58,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<input type="submit" name="submit" value="submit">	
 				</div>
 			</form>
+			<img src="E:\MyEclipse Workspace 2014\.metadata\.me_tcat7\webapps\City_Of_Seattle\public\officalimage\54872584_p0" />
 			<script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_wh.js"></script> 
 			<!-- <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>  -->
+			
 	</div>
 	</div>
   </body>

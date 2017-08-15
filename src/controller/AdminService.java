@@ -22,9 +22,11 @@ import model.AdminBean;
 import model.AdminDAO;
 import model.AdminDAOInf;
 import model.AdminOptDAOInf;
+import model.OfficalPhotoPathDAOInf;
 import model.OfficialPostBean;
 import model.OfficalPhotoPathBean;
 import model.OfficalPostImageBean;
+import model.OfficalPostImageDAOInf;
 
 public class AdminService {
 	//property
@@ -33,7 +35,7 @@ public class AdminService {
 	private String email;
 	private String password;
 		//for article submit
-	private int postid;
+	//private int postid;
 	//private Date posttime;
 	private String unitname; 
 	private String content;
@@ -49,10 +51,27 @@ public class AdminService {
 	private InputStream inputStream;
 	private AdminDAOInf adminDAOInf;
 	private AdminOptDAOInf adminOptDAOInf;
+	private OfficalPostImageDAOInf officalPostImageDAOInf;
+	private OfficalPhotoPathDAOInf officalPhotoPathDAOInf;
+	
 		//DAO & Bean
 	//private AdminBean adminBean;
 	
 	//get-set function
+	public void setOfficalPhotoPathDAOInf(OfficalPhotoPathDAOInf officalPhotoPathDAOInf){
+		this.officalPhotoPathDAOInf=officalPhotoPathDAOInf;
+	}
+	public OfficalPhotoPathDAOInf getOfficalPhotoPathDAOInf(){
+		return officalPhotoPathDAOInf;
+	}
+	
+	public void setOfficalPostImageDAOInf(OfficalPostImageDAOInf officalPostImageDAOInf){
+		this.officalPostImageDAOInf=officalPostImageDAOInf;
+	}
+	public OfficalPostImageDAOInf getOfficalPostImageDAOInf(){
+		return officalPostImageDAOInf;
+	}
+	
 	public void setImage(File image){
 		System.out.println("---------------- this is image set function");
 		this.image=image;
@@ -125,12 +144,12 @@ public class AdminService {
 //		return datetime;
 //	}
 	
-	public void setPostid(int postid){
-		this.postid=postid;
-	}
-	public int getPostid(){
-		return postid;
-	}
+//	public void setPostid(int postid){
+//		this.postid=postid;
+//	}
+//	public int getPostid(){
+//		return postid;
+//	}
 	
 	public void setUsername(String username){
 		this.username=username;
@@ -176,7 +195,7 @@ public class AdminService {
 	
 	//function
 		//submit Article
-	public void sumbitArticle() throws Exception{
+	public String sumbitArticle() throws Exception{
 		System.out.println("this is submitArticle function");
 			//set the datetime
 		Date datetime = new Date();
@@ -186,6 +205,11 @@ public class AdminService {
 		String datetimeTest = sdf.format(datetime);
 		
 		OfficialPostBean officialPostBean = new OfficialPostBean();
+		OfficialPostBean officialPostBeanDB = new OfficialPostBean();
+		OfficalPostImageBean officalPostImageBean = new OfficalPostImageBean();
+		OfficalPostImageBean officalPostImageBeanDB = new OfficalPostImageBean();
+		OfficalPhotoPathBean officalPhotoPathBean = new OfficalPhotoPathBean();
+		
 		//officialPostBean.setPostid(postid); no need
 		officialPostBean.setTitle(title);
 		officialPostBean.setContent(content);
@@ -194,12 +218,15 @@ public class AdminService {
 		officialPostBean.setPosttime(datetimeTest);
 		officialPostBean.setPoster(poster);
 		
+		
+		
 		//image file
 		String savepath = ServletActionContext.getServletContext().getRealPath("/public/officalimage");
 		System.out.println("savepath = "+savepath);
 			//test code
 		System.out.println("image is = "+image);
 		System.out.println("imagename is = "+imageFileName);
+		System.out.println("image type = "+imageContentType);
 		
 		if(image != null){
 			System.out.println("imagefile is exists");
@@ -217,20 +244,58 @@ public class AdminService {
 		}else{
 			System.out.println("imagefile is not exist");
 		}
-		
-		
+
 			//testcode
-//		System.out.println("title = "+officialPostBean.getTitle());
-//		System.out.println("content = "+officialPostBean.getContent());
-//		System.out.println("unitname = "+officialPostBean.getUnitname());
-//		System.out.println("poster = "+officialPostBean.getPoster());
-//		System.out.println("datetime = "+officialPostBean.getPosttime());
-//		System.out.println("poster = "+officialPostBean.getPoster());
+		System.out.println("title = "+officialPostBean.getTitle());
+		System.out.println("content = "+officialPostBean.getContent());
+		System.out.println("unitname = "+officialPostBean.getUnitname());
+		System.out.println("poster = "+officialPostBean.getPoster());
+		System.out.println("datetime = "+officialPostBean.getPosttime());
+		System.out.println("poster = "+officialPostBean.getPoster());
 		
 		
 
-//		inputStream=new ByteArrayInputStream("{\"success\":1}".getBytes("UTF-8"));
-//		adminOptDAOInf.addObjt(officialPostBean);
+		inputStream=new ByteArrayInputStream("{\"success\":1}".getBytes("UTF-8"));
+		adminOptDAOInf.addObjt(officialPostBean);
+		
+			//get the postid
+			//set hql
+		String hqlStr = "from OfficialPostBean where title = '"+title+"'";
+
+		List list = adminDAOInf.queryByHql(hqlStr);
+		Iterator iterator = list.iterator();
+		
+		while(iterator.hasNext()){
+			if(officialPostBeanDB.getTitle() == null){
+				officialPostBeanDB = (OfficialPostBean)iterator.next();
+			}else{
+				//code
+			}
+		}
+		
+		officalPostImageBean.setImage_name(imageFileName);
+		officalPostImageBean.setPostid(officialPostBeanDB.getPostid());
+		officalPostImageDAOInf.addObjt(officalPostImageBean);
+		
+		//get imageid
+			//test code
+			//test end
+		hqlStr = "from OfficalPostImageBean where image_name = '"+imageFileName+"'";
+		list = officalPostImageDAOInf.queryByHql(hqlStr);
+		iterator = list.iterator();
+		
+		while(iterator.hasNext()){
+			if(officalPostImageBeanDB.getImage_name() == null){
+				officalPostImageBeanDB = (OfficalPostImageBean)iterator.next();
+			}else{
+				//code
+			}
+		}
+		officalPhotoPathBean.setId(officalPostImageBeanDB.getId());
+		officalPhotoPathBean.setPath_file(savepath);
+		officalPhotoPathDAOInf.addObjt(officalPhotoPathBean);
+		
+		return "nextpost";
 	}
 	
 		//set admin session

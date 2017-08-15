@@ -19,10 +19,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<!-- css -->
+	<link ref="stylesheet" type="text/css" href="public/css/base_mainpages.css">
+		<!-- bootstrap -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- js -->
+	<!--jQuery -->
+	<script type="text/javascript" src="public/js/jquery/jquery-3.2.1.min.js"></script>
   </head>
-  
+	
+	<script>
+		$(document).ready(function(){
+			//alert("fucntion load before the page"); test code
+			
+		});
+	</script>
+	
   <body>
-    this is travel page
+    	<h1>Travel in Seattle</h1>
+    	<div id="dbd" class="" closed="true">
+
+			</div>
   </body>
 </html>
