@@ -33,14 +33,19 @@
 			<result name="adminPostPage">/view/adminpages/postpage.jsp</result>
 		</action>
 		<!-- service action --> 
-		
+		<action name="trServiceData" class="travelService" method="retrievedata">
+			<result name="success" type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
 		<!-- Post data into databases action -->
 		<action name="adminPost" class="adminService" method="sumbitArticle">
 			<result name="nextpost">/view/adminpages/postpage.jsp</result>
 		</action>
 		<!-- test action -->
-		<action name="testAction" class="testService" method="testPostImage">
+		<!-- <action name="testAction" class="testService" method="testPostImage">
 			<interceptor-ref name="defaultStack"></interceptor-ref>  
-		</action>
+		</action> -->
 	</package>
 </struts>    

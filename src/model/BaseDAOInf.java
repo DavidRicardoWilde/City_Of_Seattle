@@ -5,7 +5,7 @@ import java.util.List;
 public interface BaseDAOInf<T> {
 //	public <T> List queryBySQL(String sql, T... Obj);
 	
-//	public List queryList();
+	public List queryList();
 	
 	public void addObjt(T tObjt);
 	

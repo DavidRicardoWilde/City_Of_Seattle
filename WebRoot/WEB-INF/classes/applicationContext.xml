@@ -12,9 +12,12 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" 
 >
-	<!-- Services -->
+	<!-- Services -->	
 	<bean id="travelService" class="controller.TravelService">
-		</bean>
+		<property name="mainPageRetrieveDataDAOInf" ref="mainPageRetrieveDataDAO"></property>
+		<property name="officalPostImageDAOInf" ref="officalPostImageDAO"></property>
+		<property name="officalPhotoPathDAOInf" ref="officalPhotoPathDAO"></property>	
+	</bean>
 	
 	<bean id="showPageService" class="controller.ShowPageService">
 		</bean>
@@ -28,7 +31,7 @@
 		<property name="officalPostImageDAOInf" ref="officalPostImageDAO"></property>
 		<property name="officalPhotoPathDAOInf" ref="officalPhotoPathDAO"></property>
 	</bean>
-	
+
 	<!-- test service -->
 	<bean id="testService" class="controller.TestService">
 		</bean>
@@ -45,7 +48,12 @@
 	
 	<bean id="officialPostBean" class="model.OfficialPostBean">
 		</bean>
+		
 	<!-- DAO -->
+	<bean id="mainPageRetrieveDataDAO" class="model.MainPageRetrieveDataDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 	<bean id="officalPhotoPathDAO" class="model.OfficalPhotoPathDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -61,6 +69,7 @@
 	<bean id="adminOptDAO" class="model.AdminOptDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
 	<!-- databases -->
 	<aop:config>
 		<aop:pointcut id="dbOperateMethods" expression="execution(* model.*DAO.*(..))"/>
@@ -109,6 +118,7 @@
 			<tx:method name="queryByHql" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="testCode" propagation="REQUIRED" rollback-for="Exception"/>
 			<tx:method name="addObjt" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="queryList" propagation="REQUIRED" rollback-for="Exception"/>
 		</tx:attributes>
 	</tx:advice>
 	

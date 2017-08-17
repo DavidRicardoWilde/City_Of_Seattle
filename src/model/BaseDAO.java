@@ -13,6 +13,15 @@ public abstract class BaseDAO<T> implements BaseDAOInf<T> {
 	private Class entityClass;
 	protected SessionFactory sessionFactory;
 	
+	//set-get function
+		public void setSessionFactory(SessionFactory sessionFactory){
+			this.sessionFactory=sessionFactory;
+		}
+		public SessionFactory getSessionFacotry(){
+			return sessionFactory;
+		}
+
+	
 	//function
 	public void addObjt(T tObjt){
 		try{
@@ -41,17 +50,24 @@ public abstract class BaseDAO<T> implements BaseDAOInf<T> {
 	}
 	
 	public List queryList(){
+		System.out.println("queryList1111111");
 		try{
-			List list = null;
+			System.out.println("queryList2222222222");
 			Session session=sessionFactory.getCurrentSession();
-			
+
 			String hqlStr="from "+entityClass.getName();
-			Query query=session.createQuery(hqlStr);
-			list = query.list();
+			System.out.println("hqlStr = "+hqlStr);
 			
+			Query query=session.createQuery(hqlStr);
+			System.out.println("queryList33333333333");
+			
+			List list = query.list();
+			System.out.println("queryList444444444444");
+			System.out.println(list);
 			return list;
 		}catch(Exception e){
-			List list = null;
+			List list =null;
+			System.out.println(e);
 			return list;
 		}
 	}
@@ -70,14 +86,7 @@ public abstract class BaseDAO<T> implements BaseDAOInf<T> {
 		//System.out.println("testCode function");
 	}
 	
-	//set-get function
-	public void setSessionFactory(SessionFactory sessionFactory){
-		this.sessionFactory=sessionFactory;
-	}
-	public SessionFactory getSessionFacotry(){
-		return sessionFactory;
-	}
-
+	
 	protected BaseDAO(){
 		Type genType = getClass().getGenericSuperclass();
 		Type[] params = ((ParameterizedType)genType).getActualTypeArguments();
