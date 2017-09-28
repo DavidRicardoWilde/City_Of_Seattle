@@ -47,5 +47,7 @@
 		<!-- <action name="testAction" class="testService" method="testPostImage">
 			<interceptor-ref name="defaultStack"></interceptor-ref>  
 		</action> -->
+		
+		<!-- bring2u -->
 	</package>
 </struts>    

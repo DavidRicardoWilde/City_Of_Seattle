@@ -92,7 +92,7 @@ public class TravelService {
 					System.out.println("numTotal = "+numTotal);
 				if(inputStreamData == null){
 					officalPostBean = (OfficialPostBean)itertorContent.next();
-					inputStreamData = "{\"title\":\""+officalPostBean.getTitle()+"\",\"content\":\""+officalPostBean.getContent()+"\"";
+					inputStreamData = "{\"title\":\""+officalPostBean.getTitle()+"\",\"content\":\""+officalPostBean.getContent().replace("address", "<br/>address")+"\"";
 					while(itertorIinfor.hasNext()){
 						officalPostImageBean=(OfficalPostImageBean)itertorIinfor.next();
 						if(officalPostImageBean.getPostid()==officalPostBean.getPostid()){
@@ -103,7 +103,7 @@ public class TravelService {
 					}
 				}else{
 					officalPostBean = (OfficialPostBean)itertorContent.next();
-					inputStreamData = inputStreamData+",{\"title\":\""+officalPostBean.getTitle()+"\",\"content\":\""+officalPostBean.getContent()+"\"";
+					inputStreamData = inputStreamData+",{\"title\":\""+officalPostBean.getTitle()+"\",\"content\":\""+officalPostBean.getContent().replace("address", "<br/>address")+"\"";
 					while(itertorIinfor.hasNext()){
 						officalPostImageBean=(OfficalPostImageBean)itertorIinfor.next();
 						if(officalPostImageBean.getPostid()==officalPostBean.getPostid()){

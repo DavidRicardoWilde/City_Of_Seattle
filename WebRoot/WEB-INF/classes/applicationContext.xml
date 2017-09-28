@@ -32,10 +32,6 @@
 		<property name="officalPhotoPathDAOInf" ref="officalPhotoPathDAO"></property>
 	</bean>
 
-	<!-- test service -->
-	<bean id="testService" class="controller.TestService">
-		</bean>
-		
 	<!-- Bean -->
 	<bean id="officalPhotoPathBean" class="model.OfficalPostImageBean">
 		</bean>
@@ -71,11 +67,6 @@
 	</bean>
 	
 	<!-- databases -->
-	<aop:config>
-		<aop:pointcut id="dbOperateMethods" expression="execution(* model.*DAO.*(..))"/>
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="dbOperateMethods" />
-	</aop:config>
-	
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -122,4 +113,18 @@
 		</tx:attributes>
 	</tx:advice>
 	
-	<tx:annotation-driven transaction-manager="transactionManager" /></beans>
+	<aop:config>
+		<aop:pointcut id="dbOperateMethods" expression="execution(* model.*DAO.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="dbOperateMethods" />
+	</aop:config>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- test service -->
+	<bean id="testService" class="controller.TestService">
+		</bean>
+	
+	<!-- bring2u -->
+	
+	<!-- unknown -->	
+</beans>
