@@ -3,7 +3,7 @@
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 		
 <hibernate-mapping package="model">
-	<class name="model.OfficialPostBean" table="post">
+	<class name="cos.model.bean.OfficialPostBean" table="post">
 		<id name="postid" column="postid">
 			<generator class="native"></generator>
 		</id>

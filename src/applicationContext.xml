@@ -13,19 +13,19 @@
 	http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" 
 >
 	<!-- Services -->	
-	<bean id="travelService" class="controller.TravelService">
+	<bean id="travelService" class="cos.controller.TravelService">
 		<property name="mainPageRetrieveDataDAOInf" ref="mainPageRetrieveDataDAO"></property>
 		<property name="officalPostImageDAOInf" ref="officalPostImageDAO"></property>
 		<property name="officalPhotoPathDAOInf" ref="officalPhotoPathDAO"></property>	
 	</bean>
 	
-	<bean id="showPageService" class="controller.ShowPageService">
+	<bean id="showPageService" class="cos.controller.ShowPageService">
 		</bean>
 			
-	<bean id="logoutService" class="controller.LogoutService">
+	<bean id="logoutService" class="cos.controller.LogoutService">
 		</bean>
 		
-	<bean id="adminService" class="controller.AdminService">
+	<bean id="adminService" class="cos.controller.AdminService">
 		<property name="adminDAOInf" ref="adminDAO"></property>
 		<property name="adminOptDAOInf" ref="adminOptDAO"></property>
 		<property name="officalPostImageDAOInf" ref="officalPostImageDAO"></property>
@@ -33,36 +33,36 @@
 	</bean>
 
 	<!-- Bean -->
-	<bean id="officalPhotoPathBean" class="model.OfficalPostImageBean">
+	<bean id="officalPhotoPathBean" class="cos.model.bean.OfficalPostImageBean">
 		</bean>
 	
-	<bean id="officalPostImageBean" class="model.OfficalPostImageBean">
+	<bean id="officalPostImageBean" class="cos.model.bean.OfficalPostImageBean">
 		</bean>
 	
-	<bean id="adminBean" class="model.AdminBean">
-		</bean>
+	<!-- 	<bean id="adminBean" class="cos.model.bean.AdminBean">
+		</bean> -->
 	
-	<bean id="officialPostBean" class="model.OfficialPostBean">
+	<bean id="officialPostBean" class="cos.model.bean.OfficialPostBean">
 		</bean>
 		
 	<!-- DAO -->
-	<bean id="mainPageRetrieveDataDAO" class="model.MainPageRetrieveDataDAO">
+	<bean id="mainPageRetrieveDataDAO" class="cos.model.dao.MainPageRetrieveDataDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="officalPhotoPathDAO" class="model.OfficalPhotoPathDAO">
+	<bean id="officalPhotoPathDAO" class="cos.model.dao.OfficalPhotoPathDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="officalPostImageDAO" class="model.OfficalPostImageDAO">
+	<bean id="officalPostImageDAO" class="cos.model.dao.OfficalPostImageDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="adminDAO" class="model.AdminDAO">
+	<bean id="adminDAO" class="cos.model.dao.AdminDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="adminOptDAO" class="model.AdminOptDAO">
+	<bean id="adminOptDAO" class="cos.model.dao.AdminOptDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
@@ -114,14 +114,14 @@
 	</tx:advice>
 	
 	<aop:config>
-		<aop:pointcut id="dbOperateMethods" expression="execution(* model.*DAO.*(..))"/>
+		<aop:pointcut id="dbOperateMethods" expression="execution(* cos.model.*DAO.*(..))"/>
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="dbOperateMethods" />
 	</aop:config>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- test service -->
-	<bean id="testService" class="controller.TestService">
+	<bean id="testService" class="cos.controller.TestService">
 		</bean>
 	
 	<!-- bring2u -->

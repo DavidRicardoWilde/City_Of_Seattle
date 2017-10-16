@@ -39,16 +39,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-      <jsp:include page="../../public/insertHTML/loginregister_hd.jsp"></jsp:include>
+      <jsp:include page="../../public/bring2u/insertHTML/login_head.jsp"></jsp:include>
     <div class="content">
       <div class="head-content">
         <div class="title m-b-md">
 				  Welcome to Bring To You!
         </div>
 
-     <div class="body-content">
+     	<div class="body-content">
         
      </div>
+    </div>
     </div>
   </body>
 </html>

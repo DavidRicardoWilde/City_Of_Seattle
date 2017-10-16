@@ -3,7 +3,7 @@
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 		
 <hibernate-mapping package="model">
-	<class name="model.OfficalPostImageBean" table="offical_post_image">
+	<class name="cos.model.bean.OfficalPostImageBean" table="offical_post_image">
 		<id name="id" column="id">
 			<generator class="native"></generator>
 		</id>
@@ -11,7 +11,7 @@
 		<property name="postid"></property>
 	</class>
 	
-	<class name="model.OfficalPhotoPathBean" table="offical_photo_path">
+	<class name="cos.model.bean.OfficalPhotoPathBean" table="offical_photo_path">
 		<id name="id" column="id">
 		</id>
 		<property name="path_file"></property>

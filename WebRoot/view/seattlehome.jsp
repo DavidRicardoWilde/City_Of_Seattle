@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	 <div class="content">
       <div class="head-content">
         <div class="title m-b-md">
-				  Welcome to Seattle!
+		Welcome to Seattle!
         </div>
 
         <div class="links">

@@ -3,7 +3,7 @@
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 		
 <hibernate-mapping package="model">
-	<class name="model.AdminBean" table="admin">
+	<class name="cos.model.bean.AdminBean" table="admin">
 		<id name="adminid" column="adminid">
 			<generator class="native"></generator>
 		</id>
